@@ -11,6 +11,9 @@ Models:
 * User username:string, email:string, password:string
 * Post user:references, body:text
 
+General Notes:
+* Comment `gem "jbuilder"` in `Gemfile` to prevent scaffold from including JSON API views
+
 Useful commands:
 ```ruby
 # Add devise installation
