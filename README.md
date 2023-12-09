@@ -13,8 +13,12 @@ Models:
 
 Useful commands:
 ```ruby
+# Add devise installation
+# Read manual steps and update project as required
+rails g devise:install
+
 # Generate devise user model
-# Update migration with: t.string :username, null: false, default: ""
+# Update migration with following to add username: t.string :username, null: false, default: ""
 rails g devise User
 
 # Generate controller to add username to signup form (update routes after running)
