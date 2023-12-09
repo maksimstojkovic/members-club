@@ -14,6 +14,7 @@ Models:
 Useful commands:
 ```ruby
 # Generate devise user model
+# Update migration with: t.string :username, null: false, default: ""
 rails g devise User
 
 # Generate controller to add username to signup form (update routes after running)
