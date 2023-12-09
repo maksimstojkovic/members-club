@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :user_signed_in, only: %i[ new create ]
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :user_is_owner, only: %i[ edit update destroy ]
 
   # GET /posts
   def index
@@ -48,6 +49,8 @@ class PostsController < ApplicationController
   end
 
   private
+
+    # Redirect user if not authenticated
     def user_signed_in
       if !user_signed_in?
         redirect_to new_user_session_path
@@ -57,6 +60,13 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    # Redirect user if not authorised
+    def user_is_owner
+      if @post.user != current_user
+        redirect_to posts_path
+      end
     end
 
     # Only allow a list of trusted parameters through.
