@@ -29,6 +29,7 @@ rails g devise User
 
 # Generate controller to add username to signup form (update routes after running)
 # Update devise route to resemble: devise_for :users, controllers: { registrations: 'users/registrations' }
+# #create and #configure_sign_up_params functions need to be uncommented to override default behaviour
 rails g devise:controllers users -c registrations
 
 # Generate view to add username to signup form
