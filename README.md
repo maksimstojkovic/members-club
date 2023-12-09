@@ -1,24 +1,12 @@
-# README
+# Members Club
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails application which restricts access to the author of a post using authorisation.
 
-Things you may want to cover:
+Main techniques / principles applied:
+* Authentication
+* Authorisation
+* Resource scaffolding
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Models:
+* User username:string, email:string, password:string
+* Post user:references, body:text
