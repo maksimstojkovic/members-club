@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :user_signed_in, only: %i[ new create ]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts
@@ -46,6 +47,12 @@ class PostsController < ApplicationController
   end
 
   private
+    def user_signed_in
+      if !user_signed_in?
+        redirect_to new_user_session_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
